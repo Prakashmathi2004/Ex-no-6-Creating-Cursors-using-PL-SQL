@@ -18,8 +18,8 @@ CREATE TABLE employd (
   salary NUMBER
 );
 select * from employd;
-INSERT INTO employd VALUES (1, 'John Doe', 'Sales', 100000);
-INSERT INTO employd VALUES (2, 'Jane Doe', 'Marketing', 120000);
+INSERT INTO employd VALUES (1, 'PRAVEEN', 'Sales', 150000);
+INSERT INTO employd VALUES (2, 'PRAKASH', 'Marketing', 200000);
 ```
 ### PLSQL Cursor code
 ```
