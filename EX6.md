@@ -11,15 +11,11 @@ To create a cursor using PL/SQL.
 ### Program:
 ### Create employee table
 ```
-CREATE TABLE employd (
-  empid NUMBER,
-  empname VARCHAR(10),
-  dept VARCHAR(10),
-  salary NUMBER
-);
-select * from employd;
-INSERT INTO employd VALUES (1, 'PRAVEEN', 'Sales', 150000);
-INSERT INTO employd VALUES (2, 'PRAKASH', 'Marketing', 200000);
+Create employeee table
+create table employeee((empid NUMBER, empname VARCHAR(10), dept VARCHAR(10),salary NUMBER);
+insert into employeee values(1,'PRAKASH','HR',50000);
+insert into employeee values(2,'PRAVEEN','IT',65000);
+insert into employeee values(3,'SANTHOSH','Finance',55000);
 ```
 ### PLSQL Cursor code
 ```
