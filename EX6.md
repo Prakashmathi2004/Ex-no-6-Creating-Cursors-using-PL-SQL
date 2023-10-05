@@ -11,41 +11,43 @@ To create a cursor using PL/SQL.
 ### Program:
 ### Create employee table
 ```
-Create employeee table
-create table employeee((empid NUMBER, empname VARCHAR(10), dept VARCHAR(10),salary NUMBER);
-insert into employeee values(1,'PRAKASH','HR',50000);
-insert into employeee values(2,'PRAVEEN','IT',65000);
-insert into employeee values(3,'SANTHOSH','Finance',55000);
+CREATE TABLE emplys (
+    empid NUMBER,
+    empname VARCHAR(15),
+    dept VARCHAR(15),
+    salary NUMBER
+    );
+select * from emplys;
+INSERT INTO emplys VALUES (1, 'DEXTER', 'Supervisor', 40000);
+INSERT INTO emplys VALUES (2, 'JUSTIN LEE', 'Product Manager', 110000);
 ```
 ### PLSQL Cursor code
 ```
-DECLARE
-   CURSOR employd_cursor IS
-   SELECT empid,empname,dept,salary
-   FROM employd;
-   emp_id NUMBER;
-   emp_name VARCHAR(50);
-   emp_dept VARCHAR(50);
-   emp_salary NUMBER;
-BEGIN
-  OPEN employd_cursor;
-
-  LOOP
-    FETCH employd_cursor INTO emp_id, emp_name, emp_dept, emp_salary;
-
-    EXIT WHEN employd_cursor%NOTFOUND;
-
-    DBMS_OUTPUT.PUT_LINE('Employee ID: ' || emp_id);
-    DBMS_OUTPUT.PUT_LINE('Employee Name: ' || emp_name);
-    DBMS_OUTPUT.PUT_LINE('Department: ' || emp_dept);
-    DBMS_OUTPUT.PUT_LINE('Salary: ' || emp_salary);
-  END LOOP;
-
-  CLOSE employd_cursor;
-END;
+ DECLARE
+    CURSOR emplys_cursor IS
+    SELECT empid, empname, dept, salary
+    FROM emplys;
+    emp_id NUMBER;
+    emp_name VARCHAR(15);
+    emp_dept VARCHAR(15);
+    emp_salary NUMBER;
+    BEGIN
+   OPEN emplys_cursor;
+   LOOP
+   FETCH emplys_cursor INTO emp_id, emp_name, emp_dept, emp_salary;
+   EXIT WHEN emplys_cursor%NOTFOUND;
+   DBMS_OUTPUT.PUT_LINE('EMPID: ' || emp_id);
+   DBMS_OUTPUT.PUT_LINE('EMPNAME: ' || emp_name);
+   DBMS_OUTPUT.PUT_LINE('DEPT: ' || emp_dept);
+   DBMS_OUTPUT.PUT_LINE('SALARY: ' || emp_salary);
+   END LOOP;
+   CLOSE emplys_cursor;
+   END;
+   /
 /
 ```
 ### Output:
-![image](https://github.com/Brindha77/Ex-no-6-Creating-Cursors-using-PL-SQL/assets/118889143/ac2f440b-2f4c-420e-9e85-95df1232cf59)
+![image](https://github.com/Prakashmathi2004/Ex-no-6-Creating-Cursors-using-PL-SQL/assets/118350045/70394afb-de0b-4bb0-8f29-e279c61bf80b)
+
 ### Result:
 Thus this program executed successfully.
