@@ -1,10 +1,9 @@
 # Ex. No: 6 Creating Cursors using PL/SQL
-## Date: 
-
+### DATE:
 ### AIM: 
 To create a cursor using PL/SQL.
 
-### Steps:
+### Algorithm:
 1. Create employee table with following attributes (empid NUMBER, empname VARCHAR(10), dept VARCHAR(10),salary NUMBER);
 2. Create a cursor named as employee_cursor
 3. Using cursor read each record and display the result
@@ -12,44 +11,37 @@ To create a cursor using PL/SQL.
 
 ### Program:
 ### Create employee table
+```sql
+ create table empe(empid NUMBER,empname VARCHAR2(10),dept VARCHAR2(10), salary NUMBER);
 ```
-CREATE TABLE emplys (
-    empid NUMBER,
-    empname VARCHAR(15),
-    dept VARCHAR(15),
-    salary NUMBER
-    );
-select * from emplys;
-INSERT INTO emplys VALUES (1, 'DEXTER', 'Supervisor', 40000);
-INSERT INTO emplys VALUES (2, 'JUSTIN LEE', 'Product Manager', 110000);
-```
+
 ### PLSQL Cursor code
-```
- DECLARE
-    CURSOR emplys_cursor IS
-    SELECT empid, empname, dept, salary
-    FROM emplys;
-    emp_id NUMBER;
-    emp_name VARCHAR(15);
-    emp_dept VARCHAR(15);
-    emp_salary NUMBER;
-    BEGIN
-   OPEN emplys_cursor;
-   LOOP
-   FETCH emplys_cursor INTO emp_id, emp_name, emp_dept, emp_salary;
-   EXIT WHEN emplys_cursor%NOTFOUND;
-   DBMS_OUTPUT.PUT_LINE('EMPID: ' || emp_id);
-   DBMS_OUTPUT.PUT_LINE('EMPNAME: ' || emp_name);
-   DBMS_OUTPUT.PUT_LINE('DEPT: ' || emp_dept);
-   DBMS_OUTPUT.PUT_LINE('SALARY: ' || emp_salary);
-   END LOOP;
-   CLOSE emplys_cursor;
-   END;
-   /
+```sql
+SET SERVEROUTPUT ON
+DECLARE
+CURSOR empe_cursor IS
+SELECT empid,empname,dept,salary
+FROM empe;
+emp_id NUMBER;
+emp_name VARCHAR(50);
+emp_dept VARCHAR(50);
+emp_salary NUMBER;
+BEGIN
+OPEN empe_cursor;
+LOOP
+FETCH empe_cursor INTO emp_id, emp_name, emp_dept, emp_salary;
+EXIT WHEN empe_cursor%NOTFOUND;
+DBMS_OUTPUT.PUT_LINE('Employee ID: ' || emp_id);
+DBMS_OUTPUT.PUT_LINE('Employee Name: ' || emp_name);
+DBMS_OUTPUT.PUT_LINE('Department: ' || emp_dept);
+DBMS_OUTPUT.PUT_LINE('Salary: ' || emp_salary);
+END LOOP;
+CLOSE empe_cursor;
+END;
 /
 ```
 ### Output:
-![image](https://github.com/Prakashmathi2004/Ex-no-6-Creating-Cursors-using-PL-SQL/assets/118350045/70394afb-de0b-4bb0-8f29-e279c61bf80b)
+![4](https://github.com/Mothesh-M127/Ex-no-6-Creating-Cursors-using-PL-SQL/assets/94170892/0406e300-afc2-4745-a106-98592148fa07)
 
 ### Result:
-Thus this program executed successfully.
+Thus, a cursor using PL/SQL is executed successfully.
